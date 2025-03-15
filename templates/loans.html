@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit</title>
+</head>
+<body>
+
+    <form   action="{{ url_for('logout') }}" method="POST">
+        <input type="submit" value="logout">
+        </form>
+
+    <p>YOU OWE US:  </p>
+    <p>{{ user['loans'] }} </p>
+
+</body>
