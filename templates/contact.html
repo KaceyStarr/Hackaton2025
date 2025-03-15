@@ -3,10 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
 </head>
 <body>
-    <h1>Contact Us</h1>
-    <p>Welcome to the contact page.</p>
+    <nav class="navbar">
+        <a href="#" class="brand">Heist Design Syndicate</a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Blog</a>
+            <a href="#">Resources</a>
+            <a href="#">Services</a>
+            <a href="#" class="contact-btn">Contact Us</a>
+        </div>
+    </nav>
+
+    <div class="contact-container">
+        <div class="contact-left">
+            <h1>Let’s Chat</h1>
+            <p>
+                Have a question or need assistance? We're just a message away! Whether you're facing an issue or 
+                looking for more information, our team is ready to support you.
+            </p>
+            <p>
+                Feel free to reach out using the form below or explore other ways to get in touch!
+            </p>
+        </div>
+
+        <div class="contact-right">
+            <form>
+                <div class="input-group">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Phone Number" required>
+                    <input type="email" placeholder="Email ID" required>
+                </div>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
