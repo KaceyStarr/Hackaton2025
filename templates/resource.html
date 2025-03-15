@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Resource Center</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='resource.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Resource Center</h1>
+        <p>Free and downloadable content on impact management and measurement.</p>
+        <input type="text" id="searchBox" placeholder="Type keywords">
+        <button onclick="searchResources()">Search</button>
+    </header>
+
+    <main>
+        <div class="resource-category" onclick="filterResources('academic')">
+            <h2>📚 Academic & Study Resources</h2>
+            <ul>
+                <li><a href="#">Course Notes</a></li>
+                <li><a href="#">Textbooks</a></li>
+                <li><a href="#">Study Guides</a></li>
+            </ul>
+        </div>
+
+        <div class="resource-category" onclick="filterResources('faculty')">
+            <h2>👨‍🏫 Faculty & Researcher Support</h2>
+            <ul>
+                <li><a href="#">Funding Opportunities</a></li>
+                <li><a href="#">Research Tools</a></li>
+                <li><a href="#">Collaboration Network</a></li>
+            </ul>
+        </div>
+
+        <div class="resource-category" onclick="filterResources('campus')">
+            <h2>🌍 Campus & Community Services</h2>
+            <ul>
+                <li><a href="#">Counseling</a></li>
+                <li><a href="#">Event Calendar</a></li>
+                <li><a href="#">Clubs & Organizations</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        function searchResources() {
+            let query = document.getElementById("searchBox").value.toLowerCase();
+            let links = document.querySelectorAll("ul li a");
+            
+            links.forEach(link => {
+                let text = link.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    link.style.display = "block";
+                } else {
+                    link.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -166,5 +166,10 @@ def create_blog():
 
     return render_template("create_blog.html")
 
+# ✅ Resource Page Route
+@app.route("/resource")
+def resource():
+    return render_template("resource.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
