@@ -1,25 +1,66 @@
+/* General Page Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    background: linear-gradient(to bottom, #dde3f0, #eef1f5); /* Matching background */
 }
 
+/* Navbar Styling */
 .navbar {
     background: white;
     padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 18px;
+    color: #1a56db !important; /* Blue link */
+    text-decoration: none;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 15px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 16px;
+    font-weight: bold;
+    color: black !important;
+}
+
+.navbar-nav .nav-link:hover {
+    text-decoration: underline;
 }
 
 .contact-btn {
     background: #f1f1f1;
     border-radius: 20px;
     padding: 5px 15px;
+    font-weight: bold;
 }
 
+/* Hero Section */
 .hero {
     text-align: center;
     padding: 50px 20px;
-    background: linear-gradient(to bottom, #f8f9fa, white);
+    color: black;
+}
+
+.hero h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.hero .highlight {
+    color: #1a56db; /* Blue text */
+}
+
+.hero p {
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 .video-container {
@@ -27,6 +68,7 @@ body {
     max-width: 560px;
 }
 
+/* Help Section */
 .help-section {
     padding: 50px 20px;
     background: linear-gradient(to bottom, white, #eef1f5);
@@ -36,6 +78,7 @@ body {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .help-section .row {
@@ -45,7 +88,7 @@ body {
 }
 
 .help-section h3 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -59,4 +102,14 @@ body {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+    .help-section .row {
+        flex-direction: column;
+    }
 }
