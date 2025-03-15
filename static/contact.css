@@ -38,13 +38,14 @@ body {
 /* Contact Section */
 .contact-container {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
     padding: 50px;
 }
 
 .contact-left {
     width: 40%;
+    padding-right: 20px;
 }
 
 .contact-left h1 {
@@ -68,15 +69,20 @@ body {
 .input-group {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 
-.input-group input {
+.input-group input,
+.input-group textarea {
     width: 48%;
     padding: 10px;
     border: none;
     border-radius: 5px;
     background: #ddd;
-    margin: 10px 0;
+}
+
+.input-group input[type="textarea"] {
+    width: 100%;
 }
 
 textarea {
