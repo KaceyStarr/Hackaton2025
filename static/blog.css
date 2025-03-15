@@ -1,4 +1,4 @@
-/* Blog Page Styling */
+/* General Page Styling */
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to bottom, #dde3f0, #eef1f5);
@@ -9,58 +9,56 @@ body {
 /* Navbar */
 .navbar {
     background: white;
-    padding: 15px;
+    padding: 15px 20px;
     border-bottom: 1px solid #ddd;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navbar-brand {
     font-weight: bold;
     font-size: 18px;
-    color: #1a56db;
+    color: #1a56db !important;
     text-decoration: none;
 }
 
-/* Blog Container */
-.blog-container {
-    width: 60%;
-    margin: 20px auto;
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
+.navbar .nav-link {
+    font-weight: bold;
+    margin-right: 15px;
+    text-decoration: none;
     color: black;
 }
 
-/* Create Post Button */
-.create-post-btn {
-    display: block;
-    width: 200px;
-    margin: 10px auto;
-    padding: 10px;
-    text-align: center;
-    background: #1a56db;
-    color: white;
+.navbar .contact-btn {
+    background: #f1f1f1;
+    border-radius: 20px;
+    padding: 5px 15px;
     font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
+    border: none;
+    cursor: pointer;
 }
 
-.create-post-btn:hover {
-    background: #1447a3;
+/* Blog Section */
+.blog-section {
+    width: 60%;
+    margin: 30px auto;
 }
 
-/* Post Styling */
-.post {
+.post-card {
     background: white;
     padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-.post-info h2 a {
+.post-card h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.post-card a {
     text-decoration: none;
     color: #1a56db;
 }
@@ -68,16 +66,13 @@ h1 {
 .post-meta {
     font-size: 14px;
     color: gray;
-}
-
-.post-content {
-    font-size: 16px;
-    color: black;
+    margin-bottom: 10px;
 }
 
 .read-more {
+    display: inline-block;
+    margin-top: 10px;
     color: #1a56db;
-    font-weight: bold;
     text-decoration: none;
 }
 

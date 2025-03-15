@@ -30,6 +30,13 @@ def create_blog_table():
 # Call function to ensure table exists
 create_blog_table()
 
+# ✅ Function to Format Date
+def format_date(timestamp):
+    """Convert timestamp to 'Feb 15th, 2025' format."""
+    dt = datetime.strptime(timestamp, "%Y-%m-%d %H:%M:%S")
+    day_suffix = lambda d: "th" if 11 <= d <= 13 else {1: "st", 2: "nd", 3: "rd"}.get(d % 10, "th")
+    return dt.strftime(f"%b {dt.day}{day_suffix(dt.day)}, %Y")
+
 @app.route("/")
 def root():
     return redirect(url_for("login"))  # Directs to login page
@@ -122,7 +129,7 @@ def blog():
     cur.execute("SELECT * FROM blog_posts ORDER BY date_posted DESC")
     posts = cur.fetchall()
     conn.close()
-    return render_template("blog.html", posts=posts)
+    return render_template("blog.html", posts=posts, format_date=format_date)
 
 # ✅ Blog - View a Single Post
 @app.route("/post/<int:post_id>")
@@ -136,7 +143,7 @@ def post(post_id):
     if not post:
         return "Post Not Found", 404
     
-    return render_template("post.html", post=post)
+    return render_template("post.html", post=post, format_date=format_date)
 
 # ✅ Blog - Create a New Post
 @app.route("/create_blog", methods=["GET", "POST"])

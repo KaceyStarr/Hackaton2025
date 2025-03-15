@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Campus Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='blog.css') }}">
 </head>
 <body>
-    <div class="navbar">
-        <a href="#" class="navbar-brand">Campus Blog</a>
-    </div>
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
+        <a href="{{ url_for('create_blog') }}" class="nav-link">Create Post</a>
+        <form action="{{ url_for('logout') }}" method="post">
+            <button type="submit" class="contact-btn">Logout</button>
+        </form>
+    </nav>
 
-    <div class="blog-container">
-        <h1>Campus Blog</h1>
-        <a href="{{ url_for('create_blog') }}" class="create-post-btn">+ Create New Post</a>
-
+    <section class="blog-section">
+        <h1>Blog Posts</h1>
         {% for post in posts %}
-        <div class="post">
-            <div class="post-info">
-                <h2><a href="{{ url_for('post', post_id=post['id']) }}">{{ post['title'] }}</a></h2>
-                <p class="post-meta">Posted on {{ post['date_posted'] }}</p>
+            <div class="post-card">
+                <h2><a href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+                <p class="post-meta">{{ format_date(post.date_posted) }}</p>
+                <p>{{ post.content[:200] }}...</p>
+                <a href="{{ url_for('post', post_id=post.id) }}" class="read-more">Read More</a>
             </div>
-            <p class="post-content">{{ post['content'][:200] }}...</p>
-            <a href="{{ url_for('post', post_id=post['id']) }}" class="read-more">Read More</a>
-        </div>
         {% endfor %}
-    </div>
+    </section>
 </body>
 </html>

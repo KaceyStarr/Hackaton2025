@@ -1,4 +1,4 @@
-/* Create Post Page Styling */
+/* General Page Styling */
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to bottom, #dde3f0, #eef1f5);
@@ -9,41 +9,52 @@ body {
 /* Navbar */
 .navbar {
     background: white;
-    padding: 15px;
+    padding: 15px 20px;
     border-bottom: 1px solid #ddd;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navbar-brand {
     font-weight: bold;
     font-size: 18px;
-    color: #1a56db;
+    color: #1a56db !important;
     text-decoration: none;
 }
 
-/* Form Container */
-.create-post-container {
+.navbar .contact-btn {
+    background: #f1f1f1;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+/* Form Styling */
+.create-blog {
     width: 50%;
-    margin: 20px auto;
-    padding: 20px;
+    margin: 50px auto;
     background: white;
-    border-radius: 10px;
+    padding: 25px;
+    border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+.create-blog h1 {
     text-align: center;
-    color: black;
+    font-size: 26px;
 }
 
-label {
-    font-size: 16px;
-    font-weight: bold;
+.create-blog label {
     display: block;
-    margin-top: 10px;
+    margin-top: 15px;
+    font-size: 16px;
 }
 
-input, textarea {
+.create-blog input,
+.create-blog textarea {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -51,33 +62,22 @@ input, textarea {
     border-radius: 5px;
 }
 
-button {
+.create-blog textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    margin-top: 20px;
     width: 100%;
-    margin-top: 15px;
-    padding: 10px;
     background: #1a56db;
     color: white;
-    font-weight: bold;
     border: none;
+    padding: 10px;
+    font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
-    background: #1447a3;
-}
-
-/* Back Button */
-.back-btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 15px;
-    background: #1a56db;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.back-btn:hover {
-    background: #1447a3;
+.submit-btn:hover {
+    background: #1345a3;
 }

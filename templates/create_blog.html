@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Create Blog Post</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Blog Post</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='create_blog.css') }}">
 </head>
 <body>
-    <div class="navbar">
-        <a href="{{ url_for('blog') }}" class="navbar-brand">← Back to Blog</a>
-    </div>
+    <nav class="navbar">
+        <a href="{{ url_for('blog') }}" class="navbar-brand">Back to Blog</a>
+        <form action="{{ url_for('logout') }}" method="post">
+            <button type="submit" class="contact-btn">Logout</button>
+        </form>
+    </nav>
 
-    <div class="create-post-container">
+    <section class="create-blog">
         <h1>Create a New Blog Post</h1>
         <form method="POST">
-            <label>Title:</label>
-            <input type="text" name="title" required>
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" required>
 
-            <label>Content:</label>
-            <textarea name="content" rows="5" required></textarea>
+            <label for="content">Content:</label>
+            <textarea name="content" id="content" rows="10" required></textarea>
 
-            <button type="submit">Create Post</button>
+            <button type="submit" class="submit-btn">Post</button>
         </form>
-        <a href="{{ url_for('blog') }}" class="back-btn">← Back</a>
-    </div>
+    </section>
 </body>
 </html>
