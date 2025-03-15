@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
 import bcrypt
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = "123"
@@ -10,6 +11,24 @@ def db_connect():
     db = sqlite3.connect("expenses.sqlite")
     db.row_factory = sqlite3.Row
     return db
+
+# ✅ Create Blog Table if not exists
+def create_blog_table():
+    conn = db_connect()
+    cur = conn.cursor()
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS blog_posts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            content TEXT NOT NULL,
+            date_posted TEXT NOT NULL
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+# Call function to ensure table exists
+create_blog_table()
 
 @app.route("/")
 def root():
@@ -94,6 +113,51 @@ def home():
 def logout():
     session.pop("user", None)
     return redirect(url_for("login"))
+
+# ✅ Blog - View All Posts
+@app.route("/blog")
+def blog():
+    conn = db_connect()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM blog_posts ORDER BY date_posted DESC")
+    posts = cur.fetchall()
+    conn.close()
+    return render_template("blog.html", posts=posts)
+
+# ✅ Blog - View a Single Post
+@app.route("/post/<int:post_id>")
+def post(post_id):
+    conn = db_connect()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM blog_posts WHERE id = ?", (post_id,))
+    post = cur.fetchone()
+    conn.close()
+    
+    if not post:
+        return "Post Not Found", 404
+    
+    return render_template("post.html", post=post)
+
+# ✅ Blog - Create a New Post
+@app.route("/create_blog", methods=["GET", "POST"])
+def create_blog():
+    if "user" not in session:
+        return redirect(url_for("login"))
+
+    if request.method == "POST":
+        title = request.form["title"]
+        content = request.form["content"]
+        date_posted = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+
+        conn = db_connect()
+        cur = conn.cursor()
+        cur.execute("INSERT INTO blog_posts (title, content, date_posted) VALUES (?, ?, ?)", 
+                    (title, content, date_posted))
+        conn.commit()
+        conn.close()
+        return redirect(url_for("blog"))
+
+    return render_template("create_blog.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
