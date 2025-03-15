@@ -1,0 +1,86 @@
+/* Blog Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #dde3f0, #eef1f5);
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    background: white;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 18px;
+    color: #1a56db;
+    text-decoration: none;
+}
+
+/* Blog Container */
+.blog-container {
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+}
+
+/* Create Post Button */
+.create-post-btn {
+    display: block;
+    width: 200px;
+    margin: 10px auto;
+    padding: 10px;
+    text-align: center;
+    background: #1a56db;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.create-post-btn:hover {
+    background: #1447a3;
+}
+
+/* Post Styling */
+.post {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post-info h2 a {
+    text-decoration: none;
+    color: #1a56db;
+}
+
+.post-meta {
+    font-size: 14px;
+    color: gray;
+}
+
+.post-content {
+    font-size: 16px;
+    color: black;
+}
+
+.read-more {
+    color: #1a56db;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
