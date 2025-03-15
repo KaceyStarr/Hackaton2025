@@ -1,25 +1,3 @@
-# TO DO: finish up setting up the loan html, like, add more functions to it so it's more functional.
-# Finish up the HTMLs and the CSS stuff, navigation bars inbetween the logged in routes: credit, loan, budget etc.
-# make sure to not delete any of the JS that I set up in the login and register htmls, as well as the log-out functions.
-
-# Any questions regarding templating stuff: 
-# https://jinja.palletsprojects.com/en/3.0.x/templates/#tests
-# https://www.geeksforgeeks.org/getting-started-with-jinja-template/
-# https://www.geeksforgeeks.org/templating-with-jinja2-in-flask/
-# {{ }} for expressions.
-# {# #} for comments (even multiline) inside the template.
-# {% %} for jinja statements (like loops, etc.)
-# I encourage you guys to learn templating as it's a great skill! 
-
-# If you want to look into the database, download SQLite, great program to prototype websites that use databases
-# https://www.sqlite.org/index.html
-
-# If you guys just want to test out things inside some of the menus you can either load up the HTML by itself without hosting
-# or access the account listed below:
-# login:    alex
-# password: alex
-# You might notice that the passwords look all weird in the SQLite file, that's because of bcrypt.
-
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
 import bcrypt
@@ -33,9 +11,10 @@ def db_connect():
     db.row_factory = sqlite3.Row
     return db
 
+
 @app.route("/")
 def root():
-    return redirect(url_for("signup"))  # Directs to signup page
+    return redirect(url_for("login"))  # Directs to signup page
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
@@ -100,6 +79,7 @@ def login():
         return redirect(url_for("home"))  # Redirect to home page after login
 
     return render_template("login.html", errors=errors)
+
 
 @app.route("/home")
 def home():
