@@ -11,10 +11,9 @@ def db_connect():
     db.row_factory = sqlite3.Row
     return db
 
-
 @app.route("/")
 def root():
-    return redirect(url_for("login"))  # Directs to signup page
+    return redirect(url_for("login"))  # Directs to login page
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
@@ -80,6 +79,9 @@ def login():
 
     return render_template("login.html", errors=errors)
 
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 
 @app.route("/home")
 def home():
