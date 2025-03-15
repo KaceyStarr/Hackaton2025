@@ -1,29 +1,17 @@
 body {
-    background: linear-gradient(to bottom, white, #dde5f4);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .navbar {
-    background-color: white;
-    padding: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand {
-    font-weight: bold;
-    color: black;
-    text-decoration: none;
-}
-
-.navbar-nav .nav-link {
-    color: black;
-    margin-right: 15px;
+    background: white;
+    padding: 15px 0;
 }
 
 .contact-btn {
-    background-color: #e0e0e0;
+    background: #f1f1f1;
     border-radius: 20px;
     padding: 5px 15px;
 }
@@ -31,19 +19,44 @@ body {
 .hero {
     text-align: center;
     padding: 50px 20px;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-.highlight {
-    color: blue;
+    background: linear-gradient(to bottom, #f8f9fa, white);
 }
 
 .video-container {
-    margin-top: 20px;
+    margin: 20px auto;
+    max-width: 560px;
+}
+
+.help-section {
+    padding: 50px 20px;
+    background: linear-gradient(to bottom, white, #eef1f5);
+}
+
+.help-section h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.help-section .row {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.help-section h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.help-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.help-section ul li {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
 }
