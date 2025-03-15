@@ -9,7 +9,7 @@ body {
     margin: 0;
 }
 
-/* Center the signup card exactly in the middle */
+/* Center the signup card */
 #signupform {
     display: flex;
     justify-content: center;
