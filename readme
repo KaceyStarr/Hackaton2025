@@ -1,0 +1,35 @@
+Installation
+Clone this repository to your local machine:
+
+bash
+Copy
+Edit
+git clone https://github.com/your-username/college-resource-app.git
+cd college-resource-app
+Install the required dependencies:
+
+bash
+Copy
+Edit
+pip install -r requirements.txt
+
+Running the Web App
+To run the web app locally, use one of the following commands:
+
+For Python 3:
+
+bash
+Copy
+Edit
+python3 main.py
+For Python 2:
+
+bash
+Copy
+Edit
+python main.py
+Once the server is running, open your browser and visit:
+
+cpp
+Copy
+Edit
